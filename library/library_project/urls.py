@@ -16,10 +16,11 @@ Including another URLconf
 #library_project/urls.py
 
 from django.contrib import admin
-from django.urls import path
-from .veiws import BookListView
+from django.urls import path, include
+from .views import BookListView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', BookListView.as_view(), name='home'),
+    path('', include('books.urls')),
 ]
