@@ -13,9 +13,13 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+#library_project/urls.py
+
 from django.contrib import admin
 from django.urls import path
+from .veiws import BookListView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', BookListView.as_view(), name='home'),
 ]
